@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Mateus Felipe G. de Campos</title>
+    <!-- Carrega o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Importa a fonte 'Inter' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Importa a biblioteca AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Define a fonte Inter como padrão */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Gradiente de fundo solicitado */
+            background-color: #11192C; /* Fallback */
+            background-image: linear-gradient(180deg, #1D283A, #11192C);
+            background-attachment: fixed; /* Para o gradiente não rolar com o conteúdo */
+        }
+        
+        /* Classe customizada para o link ativo da navbar */
+        .nav-link-active {
+            color: #60a5fa; /* text-blue-400 */
+            border-bottom-color: #60a5fa;
+        }
+
+        /* Efeito de hover para links da navbar */
+        .nav-link-hover {
+            @apply border-b-2 border-transparent transition-all duration-300;
+        }
+        .nav-link-hover:hover {
+            @apply border-blue-400 text-blue-400;
+        }
+
+        /* Botão com efeito de hover (ring) */
+        .btn-hover-ring {
+            @apply transition-all duration-300 rounded-lg;
+            @apply hover:ring-2 hover:ring-blue-400 hover:ring-offset-2 hover:ring-offset-gray-900;
+        }
+        
+        .btn-secondary-hover-ring {
+            @apply transition-all duration-300 rounded-lg;
+            @apply hover:ring-2 hover:ring-gray-500 hover:ring-offset-2 hover:ring-offset-gray-800;
+        }
+
+        /* Estilos para os "badges" de habilidades */
+        .skill-badge { @apply bg-blue-900 bg-opacity-50 text-blue-300 text-sm font-medium px-4 py-2 rounded-full shadow-sm border border-blue-700; }
+        .skill-badge-green { @apply bg-green-900 bg-opacity-50 text-green-300 text-sm font-medium px-4 py-2 rounded-full shadow-sm border border-green-700; }
+        .skill-badge-purple { @apply bg-purple-900 bg-opacity-50 text-purple-300 text-sm font-medium px-4 py-2 rounded-full shadow-sm border border-purple-700; }
+        
+        /* Estilo para o highlight no texto */
+        .highlight-gradient {
+            @apply bg-gradient-to-r from-blue-300 to-blue-400 bg-clip-text text-transparent font-medium;
+        }
+        /* Estilo para o highlight com gradiente do nome */
+        .name-gradient-text {
+            @apply bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent font-bold;
+        }
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+    <!-- ========== HEADER (NAVBAR) ========== -->
+    <header class="bg-gray-900 bg-opacity-80 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Nome/Logo -->
+            <a href="#home" class="text-xl font-bold tracking-tight hover:text-blue-400 transition-colors duration-300">
+                Mateus F. G. de Campos
+            </a>
+
+            <!-- Links (Desktop) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#sobre" class="nav-link nav-link-hover">Sobre Mim</a>
+                <a href="#como-eu-trabalho" class="nav-link nav-link-hover">Como Trabalho</a>
+                <a href="#habilidades" class="nav-link nav-link-hover">Habilidades</a>
+                <a href="#projetos" class="nav-link nav-link-hover">Projetos</a>
+                <a href="#experiencia" class="nav-link nav-link-hover">Experiência</a>
+                <a href="#educacao" class="nav-link nav-link-hover">Formação</a>
+                <a href="#contato" class="nav-link nav-link-hover">Contato</a>
+            </div>
+
+            <!-- Botão Mobile (Hamburger) -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Menu Mobile (Dropdown) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900">
+            <a href="#sobre" class="block py-2 px-6 text-sm hover:bg-gray-800">Sobre Mim</a>
+            <a href="#como-eu-trabalho" class="block py-2 px-6 text-sm hover:bg-gray-800">Como Trabalho</a>
+            <a href="#habilidades" class="block py-2 px-6 text-sm hover:bg-gray-800">Habilidades</a>
+            <a href="#projetos" class="block py-2 px-6 text-sm hover:bg-gray-800">Projetos</a>
+            <a href="#experiencia" class="block py-2 px-6 text-sm hover:bg-gray-800">Experiência</a>
+            <a href="#educacao" class="block py-2 px-6 text-sm hover:bg-gray-800">Formação</a>
+            <a href="#contato" class="block py-2 px-6 text-sm hover:bg-gray-800">Contato</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+
+        <!-- ========== SEÇÃO 1: HOME (HERO) ========== -->
+        <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6" style="background-image: radial-gradient(ellipse at center, #1D283A 0%, #11192C 70%);">
+            <div class="max-w-4xl">
+                <!-- Nome com Gradiente -->
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 flex flex-col items-center">
+                    <span class="text-white">Mateus Felipe</span>
+                    <span class="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">Granzotto de Campos</span>
+                </h1>
+                <h2 class="text-lg md:text-2xl font-light text-blue-300 mb-8" data-aos="fade-up" data-aos-delay="100">
+                    Desenvolvedor Web focado em Marketing Digital e Otimização da Experiência do Usuário.
+                </h2>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://www.linkedin.com/in/mateus-fgc/" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 transition-colors duration-300 inline-flex items-center justify-center shadow-lg btn-hover-ring">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/MateusFGC" target="_blank" rel="noopener noreferrer" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 transition-colors duration-300 inline-flex items-center justify-center shadow-lg btn-hover-ring">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.109-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SEÇÃO 2: SOBRE MIM ========== -->
+        <section id="sobre" class="py-20 md:py-32 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6 text-white" data-aos="fade-up">
+                    Sobre Mim
+                </h2>
+                
+                <!-- Linha Decorativa com Gradiente -->
+                <div class="w-40 h-0.5 mx-auto mb-16 bg-gradient-to-r from-blue-300 to-blue-500" data-aos="fade-up" data-aos-delay="100"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <!-- Coluna de Texto -->
+                    <div class="text-lg text-gray-300 space-y-6 text-left leading-relaxed" data-aos="fade-right" data-aos-delay="200">
+                        <p>
+                            Sou <span class="name-gradient-text">Desenvolvedor Web</span> com experiência prática no time de <span class="highlight-gradient">Marketing Digital da KaBuM!</span>, focado em <span class="highlight-gradient">otimizar a jornada do usuário</span> e a <span class="highlight-gradient">performance de páginas digitais</span>. Tenho conhecimento sólido no desenvolvimento e adaptação de <span class="highlight-gradient">landing pages responsivas</span> com <span class="highlight-gradient">HTML, CSS, JavaScript e Bootstrap</span>. Além disso, atuo diretamente na programação e <span class="highlight-gradient">otimização de blogs em WordPress</span>, e possuo familiaridade com a manipulação de layouts em Webflow e a inspeção de projetos no Figma.
+                        </p>
+                        <p>
+                            Meu perfil é <span class="name-gradient-text">analítico e proativo</span>. Vindo de experiências anteriores que exigiam <span class="highlight-gradient">autonomia e análise de dados</span>, trago uma grande capacidade de <span class="highlight-gradient">aprendizado rápido</span> e gosto de <span class="highlight-gradient">resolver problemas de forma colaborativa</span>. Essa bagagem me permite entender o 'porquê' por trás de cada projeto e não apenas o 'como', garantindo que a implementação técnica esteja sempre <span class="highlight-gradient">alinhada aos objetivos de negócio</span>.
+                        </p>
+                    </div>
+                    <!-- Coluna da Missão -->
+                    <div class="border border-blue-400 rounded-xl p-8 shadow-lg" data-aos="fade-left" data-aos-delay="300" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-3 text-blue-300 flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <circle cx="12" cy="12" r="9" /> <circle cx="12" cy="12" r="5" /> <circle cx="12" cy="12" r="1" /> </svg>
+                            Minha Missão
+                        </h3>
+                        <p class="text-lg text-gray-200 leading-relaxed">
+                            Busco colaborar com equipes multidisciplinares para entregar solutions digitais que não sejam apenas visualmente atraentes, mas eficientes e orientadas a resultados de conversão e performance.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========== SEÇÃO 3: COMO EU TRABALHO (NOVA) ========== -->
+        <section id="como-eu-trabalho" class="py-20 md:py-32 px-6 bg-gray-900 bg-opacity-50">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6 text-white" data-aos="fade-up">
+                    Como Eu Trabalho
+                </h2>
+                <!-- Linha Decorativa -->
+                <div class="w-40 h-0.5 mx-auto mb-16 bg-gradient-to-r from-blue-300 to-blue-500" data-aos="fade-up" data-aos-delay="100"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1: Proatividade -->
+                    <div class="p-8 rounded-xl shadow-lg border border-gray-700" data-aos="fade-up" data-aos-delay="200" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-6 text-blue-400" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                           <path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Proatividade e Autonomia</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Não espero as coisas acontecerem. Gosto de ser autônomo, identificar problemas e otimizar fluxos, como na implementação de IA para agilizar entregas no meu time atual.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Colaboração -->
+                    <div class="p-8 rounded-xl shadow-lg border border-gray-700" data-aos="fade-up" data-aos-delay="300" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-6 text-blue-400" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                           <path d="M9 7c-1.657 0 -3 1.343 -3 3s1.343 3 3 3s3 -1.343 3 -3s-1.343 -3 -3 -3z" />
+                           <path d="M15 7c-1.657 0 -3 1.343 -3 3s1.343 3 3 3s3 -1.343 3 -3s-1.343 -3 -3 -3z" />
+                           <path d="M9 17c-1.657 0 -3 1.343 -3 3s1.343 3 3 3s3 -1.343 3 -3s-1.343 -3 -3 -3z" />
+                           <path d="M15 17c-1.657 0 -3 1.343 -3 3s1.343 3 3 3s3 -1.343 3 -3s-1.343 -3 -3 -3z" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Colaboração Analítica</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Acredito que os melhores resultados vêm da colaboração. Meu perfil analítico me ajuda a decompor problemas complexos e discuti-los de forma clara com a equipe.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: Aprendizado -->
+                    <div class="p-8 rounded-xl shadow-lg border border-gray-700" data-aos="fade-up" data-aos-delay="400" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-6 text-blue-400" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                           <path d="M3 17l6 -6l4 4l8 -8" />
+                           <path d="M14 7l7 0l0 7" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Aprendizado Contínuo</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Minha carreira é prova da minha capacidade de aprender rápido. Migrei da área mecânica/elétrica para a tecnologia e estou em constante evolução.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========== SEÇÃO 4: HABILIDADES (NOVA VERSÃO) ========== -->
+        <section id="habilidades" class="py-20 md:py-32 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6 text-white" data-aos="fade-up">
+                    Habilidades & Competências
+                </h2>
+                <!-- Linha Decorativa -->
+                <div class="w-20 h-1 mx-auto mb-16 bg-gradient-to-r from-blue-300 to-blue-500 rounded" data-aos="fade-up" data-aos-delay="100"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1: Front-End -->
+                    <div class="p-8 rounded-xl shadow-lg border border-gray-700" data-aos="fade-up" data-aos-delay="200" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-6 text-blue-400" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                           <path d="M7 8l-4 4l4 4" />
+                           <path d="M17 8l4 4l-4 4" />
+                           <path d="M14 4l-4 16" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-6 text-white">Desenvolvimento Front-End</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">HTML5</span>
+                            <span class="skill-badge">CSS3</span>
+                            <span class="skill-badge">JavaScript ES6+</span>
+                            <span class="skill-badge">React</span>
+                            <span class="skill-badge">Bootstrap</span>
+                            <span class="skill-badge">Design Responsivo</span>
+                            <span class="skill-badge">Acessibilidade Web</span>
+                            <span class="skill-badge">Performance Web</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Plataformas -->
+                    <div class="p-8 rounded-xl shadow-lg border border-gray-700" data-aos="fade-up" data-aos-delay="300" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-6 text-blue-400" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                           <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.1 1.1a1 1 0 0 0 1.4 0l3 -3a1 1 0 0 0 0 -1.4l-1.1 -1.1a1 1 0 0 0 -1.4 0l-3 3z" />
+                           <path d="M12 12l-6 6l-3 -3l6 -6" />
+                           <path d="M9 15l-1.5 1.5" />
+                           <path d="M14.5 9.5l1.5 -1.5" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-6 text-white">Plataformas & Ferramentas</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">WordPress</span>
+                            <span class="skill-badge">Webflow</span>
+                            <span class="skill-badge">Figma</span>
+                            <span class="skill-badge">Git & GitHub</span>
+                            <span class="skill-badge">Photoshop</span>
+                            <span class="skill-badge">VS Code</span>
+                            <span class="skill-badge">Chrome DevTools</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Marketing & UX -->
+                    <div class="p-8 rounded-xl shadow-lg border border-gray-700" data-aos="fade-up" data-aos-delay="400" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-6 text-purple-400" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                           <path d="M3 17l6 -6l4 4l8 -8" />
+                           <path d="M14 7l7 0l0 7" />
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-6 text-white">Marketing Digital & UX</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge-purple">Otimização de Conversão (CRO)</span>
+                            <span class="skill-badge-purple">SEO On-Page</span>
+                            <span class="skill-badge-purple">Testes A/B</span>
+                            <span class="skill-badge-purple">Análise de Performance</span>
+                            <span class="skill-badge-purple">Princípios de UI/UX</span>
+                            <span class="skill-badge-purple">Google Analytics</span>
+                            <span class="skill-badge-purple">Landing Pages</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========== SEÇÃO 5: PROJETOS EM DESTAQUE ========== -->
+        <section id="projetos" class="py-20 md:py-32 px-6 bg-gray-900 bg-opacity-50">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6 text-white">
+                        Projetos em Destaque
+                    </h2>
+                    <!-- Linha Decorativa -->
+                    <div class="w-20 h-1 mx-auto mb-6 bg-gradient-to-r from-blue-300 to-blue-500 rounded"></div>
+                    <p class="text-lg md:text-xl text-gray-400" data-aos="fade-up" data-aos-delay="100">
+                        Seleção de projetos que demonstram minhas habilidades técnicas e visão estratégica
+                    </p>
+                </div>
+
+                <!-- Grid de Projetos -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Projeto 1: Carousel de Reviews -->
+                    <div class="rounded-xl shadow-lg border border-gray-700 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="200" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <div class="p-8 flex-grow">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-400">Carousel de Reviews KaBuM!</h3>
+                            <p class="text-gray-300 mb-6">Componente de carrossel focado em performance (Core Web Vitals) e UX, usando o padrão "Video Facade" (Click-to-Load) e "Efeito Gaveta" (Accordion) com JS para gerenciar o estado da UI.</p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="skill-badge">JavaScript</span>
+                                <span class="skill-badge">CSS3 (Animações)</span>
+                                <span class="skill-badge">Performance</span>
+                                <span class="skill-badge">UIkit</span>
+                                <span class="skill-badge">Video Facade</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900 bg-opacity-50 px-8 py-4 flex flex-col sm:flex-row gap-4">
+                            <a href="httpsar://mateusfgc.github.io/Carousel-KaBuM/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-5 transition-colors duration-300 shadow-lg btn-hover-ring inline-flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                                Ver ao Vivo
+                            </a>
+                            <a href="httpsar://github.com/MateusFGC/Carousel-KaBuM" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-5 transition-colors duration-300 shadow-lg btn-hover-ring inline-flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.109-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                Código Fonte
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 2: LP Consultoria -->
+                    <div class="rounded-xl shadow-lg border border-gray-700 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="300" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <div class="p-8 flex-grow">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-400">LP Consultoria Agrícola</h3>
+                            <p class="text-gray-300 mb-6">Landing Page com foco total em SEO Técnico (Nota 100 no Lighthouse) e performance. Usei Dados Estruturados (Schema.org) e pré-carregamento de recursos (`preload`) para otimizar o LCP.</p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="skill-badge-green">SEO Técnico</span>
+                                <span class="skill-badge-green">Schema.org</span>
+                                <span class="skill-badge-green">HTML5 Semântico</span>
+                                <span class="skill-badge-green">Swiper.js</span>
+                                <span class="skill-badge-green">Mobile-First</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900 bg-opacity-50 px-8 py-4 flex flex-col sm:flex-row gap-4">
+                            <a href="httpsar://mateusfgc.github.io/consultoria-site/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-5 transition-colors duration-300 shadow-lg btn-hover-ring inline-flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                                Ver ao Vivo
+                            </a>
+                            <a href="httpsar://github.com/MateusFGC/consultoria-site" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-5 transition-colors duration-300 shadow-lg btn-hover-ring inline-flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.109-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                Código Fonte
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 3: LP Dispenser KaBuM! -->
+                    <div class="rounded-xl shadow-lg border border-gray-700 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="200" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <div class="p-8 flex-grow">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-400">LP Dispenser KaBuM! (PDP)</h3>
+                            <p class="text-gray-300 mb-6">Recriação de alta fidelidade de uma PDP do KaBuM!, traduzindo um Key Visual (KV) de marketing em uma interface responsiva, com foco em HTML semântico, performance e acessibilidade (alt tags).</p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="skill-badge-purple">HTML5 Semântico</span>
+                                <span class="skill-badge-purple">Bootstrap</span>
+                                <span class="skill-badge-purple">CSS3</span>
+                                <span class="skill-badge-purple">SEO On-Page</span>
+                                <span class="skill-badge-purple">Pixel-Perfect</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900 bg-opacity-50 px-8 py-4 flex flex-col sm:flex-row gap-4">
+                            <a href="httpsar://mateusfgc.github.io/LP-especial-dispenser-kabum/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-5 transition-colors duration-300 shadow-lg btn-hover-ring inline-flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                                Ver ao Vivo
+                            </a>
+                            <a href="httpsar://github.com/MateusFGC/LP-especial-dispenser-kabum" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-5 transition-colors duration-300 shadow-lg btn-hover-ring inline-flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.109-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                Código Fonte
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 4: LP Cadeira Gamer KaBuM! -->
+                    <div class="rounded-xl shadow-lg border border-gray-700 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="300" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <div class="p-8 flex-grow">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-400">LP Cadeira Gamer KaBuM!</h3>
+                            <p class="text-gray-300 mb-6">Desenvolvimento de um componente modular para ser integrado em uma PDP existente, com foco em semântica estratégica (hierarquia de títulos `h2`/`h3`) para respeitar o SEO da página-mãe.</p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="skill-badge">HTML5 Semântico</span>
+                                <span class="skill-badge">CSS (Híbrido)</span>
+                                <span class="skill-badge">Bootstrap</span>
+                                <span class="skill-badge">SEO On-Page</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900 bg-opacity-50 px-8 py-4 flex flex-col sm:flex-row gap-4">
+                            <a href="httpsar://mateusfgc.github.io/LP-especial-cadeira-kabum/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-5 transition-colors duration-300 shadow-lg btn-hover-ring inline-flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                                Ver ao Vivo
+                            </a>
+                            <a href="httpsar://github.com/MateusFGC/LP-especial-cadeira-kabum" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-5 transition-colors duration-300 shadow-lg btn-hover-ring inline-flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.109-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                Código Fonte
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 5: Calculadora JS -->
+                    <div class="rounded-xl shadow-lg border border-gray-700 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="200" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                        <div class="p-8 flex-grow">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-400">Calculadora JS</h3>
+                            <p class="text-gray-300 mb-6">Projeto de estudo para praticar e demonstrar habilidades de manipulação do DOM e lógica de programação em JavaScript puro, criando uma calculadora funcional e responsiva.</p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="skill-badge-green">JavaScript (Lógica)</span>
+                                <span class="skill-badge-green">DOM</span>
+                                <span class="skill-badge-green">HTML5</span>
+                                <span class="skill-badge-green">CSS3 (Grid)</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900 bg-opacity-50 px-8 py-4 flex flex-col sm:flex-row gap-4">
+                            <a href="httpsar://mateusfgc.github.io/caculadora-js/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-5 transition-colors duration-300 shadow-lg btn-hover-ring inline-flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                                Ver ao Vivo
+                            </a>
+                            <a href="httpsar://github.com/MateusFGC/caculadora-js" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-5 transition-colors duration-300 shadow-lg btn-hover-ring inline-flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.109-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                Código Fonte
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== SEÇÃO 6: EXPERIÊNCIA PROFISSIONAL ========== -->
+        <section id="experiencia" class="py-20 md:py-32 px-6">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6 text-white" data-aos="fade-up">
+                    Experiência Profissional
+                </h2>
+                <!-- Linha Decorativa -->
+                <div class="w-40 h-0.5 mx-auto mb-16 bg-gradient-to-r from-blue-300 to-blue-500" data-aos="fade-up" data-aos-delay="100"></div>
+
+                <!-- Container da "Linha do Tempo" -->
+                <div class="relative space-y-12">
+                    <!-- Linha vertical da timeline -->
+                    <!-- Centralizada em desktop (md:left-1/2) e à esquerda em mobile (left-3) -->
+                    <div class="absolute left-3 md:left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2" data-aos="fade-in" data-aos-delay="300"></div>
+
+                    <!-- Item 1: KaBuM! (Direita) -->
+                    <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                        <!-- Ponto (alinhado com a linha) -->
+                        <div class="absolute left-3 md:left-1/2 w-6 h-6 bg-blue-400 rounded-full border-4 border-gray-900 -translate-x-1/2 z-10"></div>
+                        <!-- Card Container -->
+                        <!-- Mobile: ml-10 (à direita da linha) | Desktop: md:w-1/2 md:ml-1/2 md:pl-10 (metade direita) -->
+                        <div class="w-full ml-10 md:w-1/2 md:ml-1/2 md:pl-10">
+                            <div class="rounded-xl shadow-lg border border-gray-700 p-8" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                                <span class="text-sm font-medium text-blue-300">2021 - Presente</span>
+                                <h3 class="text-2xl font-bold my-2 text-white">Desenvolvedor WEB | KaBuM!</h3>
+                                <p class="text-gray-300 mb-4">
+                                    Atuo no desenvolvimento e manutenção de landing pages responsivas (HTML, CSS, JavaScript) para campanhas de marketing, focando na melhoria da experiência do usuário e otimização da conversão.
+                                </p>
+                                <p class="text-gray-300 mb-4">
+                                    Sou responsável pela programação e otimização do blog da empresa (WordPress), implementando melhorias de layout, performance e SEO On-Page.
+                                </p>
+                                <div class="bg-gray-900 bg-opacity-70 p-4 rounded-lg border border-blue-800">
+                                    <span class="font-bold text-blue-300">Conquista Chave:</span>
+                                    <p class="text-gray-300 text-sm">Utilizo proativamente ferramentas de IA para otimizar o fluxo de trabalho da equipe, resultando em maior agilidade nas entregas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Sempre Vale (Esquerda) -->
+                    <div class="relative" data-aos="fade-right" data-aos-delay="200">
+                        <!-- Ponto (alinhado com a linha) -->
+                        <div class="absolute left-3 md:left-1/2 w-6 h-6 bg-blue-400 rounded-full border-4 border-gray-900 -translate-x-1/2 z-10"></div>
+                        <!-- Card Container -->
+                        <!-- Mobile: ml-10 (à direita da linha) | Desktop: md:w-1/2 md:ml-0 md:pr-10 md:text-right (metade esquerda) -->
+                        <div class="w-full ml-10 md:w-1/2 md:ml-0 md:pr-10 md:text-right">
+                            <div class="rounded-xl shadow-lg border border-gray-700 p-8" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                                <span class="text-sm font-medium text-blue-300">2015 - 2019</span>
+                                <h3 class="text-2xl font-bold my-2 text-white">Assist. de Prevenção de Perdas | Sempre Vale</h3>
+                                <p class="text-gray-300">
+                                    Responsável pela análise de dados de perdas, desenvolvimento de políticas de controle e treinamento de funcionários, fortalecendo minha capacidade analítica.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3: Autônomo (Direita) -->
+                    <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                        <!-- Ponto (alinhado com a linha) -->
+                        <div class="absolute left-3 md:left-1/2 w-6 h-6 bg-blue-400 rounded-full border-4 border-gray-900 -translate-x-1/2 z-10"></div>
+                        <!-- Card Container -->
+                        <!-- Mobile: ml-10 (à direita da linha) | Desktop: md:w-1/2 md:ml-1/2 md:pl-10 (metade direita) -->
+                        <div class="w-full ml-10 md:w-1/2 md:ml-1/2 md:pl-10">
+                            <div class="rounded-xl shadow-lg border border-gray-700 p-8" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                                <span class="text-sm font-medium text-blue-300">2015 - 2021</span>
+                                <h3 class="text-2xl font-bold my-2 text-white">Eletricista Instalador | Autônomo</h3>
+                                <p class="text-gray-300">
+                                    Gerenciei o negócio de forma autônoma, lidando com contato com clientes, orçamentos e negociação, o que desenvolveu minha autonomia e visão de negócio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SEÇÃO 7: EDUCAÇÃO ========== -->
+        <section id="educacao" class="py-20 md:py-32 px-6 bg-gray-900 bg-opacity-50">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6 text-white" data-aos="fade-up">
+                    Formação e Certificações
+                </h2>
+                <!-- Linha Decorativa -->
+                <div class="w-40 h-0.5 mx-auto mb-16 bg-gradient-to-r from-blue-300 to-blue-500" data-aos="fade-up" data-aos-delay="100"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Formação -->
+                    <div class="space-y-6" data-aos="fade-right" data-aos-delay="200">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-4">Formação Acadêmica</h3>
+                        <div class="rounded-xl shadow-lg border border-gray-700 p-6" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                            <h4 class="text-xl font-semibold text-white">Análise e Desenvolvimento de Sistemas</h4>
+                            <p class="text-blue-300">UNIP (Cursando)</p>
+                        </div>
+                        <div class="rounded-xl shadow-lg border border-gray-700 p-6" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                            <h4 class="text-xl font-semibold text-white">Desenvolvedor Full Stack Javascript</h4>
+                            <p class="text-blue-300">OneBitCode (Cursando)</p>
+                        </div>
+                        <div class="rounded-xl shadow-lg border border-gray-700 p-6" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                            <h4 class="text-xl font-semibold text-white">Técnico Mecânico</h4>
+                            <p class="text-blue-300">SENAI (Concluído)</p>
+                        </div>
+                    </div>
+                    <!-- Certificações -->
+                    <div class="space-y-4" data-aos="fade-left" data-aos-delay="300">
+                        <h3 class="text-2xl font-bold text-green-400 mb-4">Certificações Relevantes</h3>
+                        <div class="rounded-xl shadow-lg border border-gray-700 p-4 flex items-center" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                            <svg class="h-6 w-6 text-green-400 mr-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span class="text-gray-300 text-lg">Fundamentos do React (Cursando)</span>
+                        </div>
+                        <div class="rounded-xl shadow-lg border border-gray-700 p-4 flex items-center" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                            <svg class="h-6 w-6 text-green-400 mr-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span class="text-gray-300 text-lg">JavaScript Avançado</span>
+                        </div>
+                        <div class="rounded-xl shadow-lg border border-gray-700 p-4 flex items-center" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                            <svg class="h-6 w-6 text-green-400 mr-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span class="text-gray-300 text-lg">CSS Avançado</span>
+                        </div>
+                        <div class="rounded-xl shadow-lg border border-gray-700 p-4 flex items-center" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                            <svg class="h-6 w-6 text-green-400 mr-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span class="text-gray-300 text-lg">SEO Summit</span>
+                        </div>
+                        <div class="rounded-xl shadow-lg border border-gray-700 p-4 flex items-center" style="background-image: linear-gradient(to top right, #0f172a, #1D283A);">
+                            <svg class="h-6 w-6 text-green-400 mr-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span class="text-gray-300 text-lg">HTML e CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== SEÇÃO 8: CONTATO (CTA) ========== -->
+        <section id="contato" class="py-20 md:py-32 px-6">
+            <div class="container mx-auto max-w-3xl text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-white" data-aos="fade-up">
+                    Vamos Conversar
+                </h2>
+                <!-- Linha Decorativa -->
+                <div class="w-40 h-0.5 mx-auto mb-8 bg-gradient-to-r from-blue-300 to-blue-500" data-aos="fade-up" data-aos-delay="100"></div>
+
+                <p class="text-lg md:text-xl text-gray-300 mb-12" data-aos="fade-up" data-aos-delay="200">
+                    "Estou buscando novas oportunidades como Desenvolvedor Web (Front-End ou Full Stack), onde eu possa aplicar meu conhecimento em otimização de performance, SEO On-Page e minha paixão por criar soluções digitais eficientes que geram resultados de conversão."
+                </p>
+
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8" data-aos="fade-up" data-aos-delay="300">
+                    <!-- E-mail -->
+                    <a href="mailto:mateusgranzotto00@gmail.com" class="text-lg text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center btn-secondary-hover-ring p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        mateusgranzotto00@gmail.com
+                    </a>
+                    
+                    <!-- WhatsApp -->
+                    <a href="httpsa://wa.me/5519993518254" target="_blank" rel="noopener noreferrer" class="text-lg text-gray-300 hover:text-green-400 transition-colors duration-300 flex items-center btn-secondary-hover-ring p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.451-4.437-9.887-9.889-9.887-5.451 0-9.887 4.436-9.889 9.887.001 2.269.809 4.39 2.295 6.046l-1.547 5.679 5.797-1.523zm7.56-6.427c-.229-.115-1.359-.67-1.57-.745-.211-.074-.367-.115-.523.115-.156.23-.596.745-.732.899-.136.155-.272.176-.502.061-.229-.115-.962-.354-1.833-1.13-.679-.596-1.137-1.328-1.273-1.56-.136-.23-.011-.354.104-.468.104-.104.229-.272.344-.408.115-.136.156-.23.23-.386.074-.155.037-.272-.019-.386-.057-.115-.523-1.258-.718-1.711-.181-.43-.367-.367-.502-.367-.136 0-.272-.061-.408-.061-.136 0-.348.061-.539.319-.191.258-.718.699-.718 1.711s.718 1.974.814 2.11.096.155 1.405 2.135c1.928 2.97 2.28 3.482 3.209 3.863.928.382 1.464.306 1.954.192.57-.136 1.359-.557 1.55-1.071.191-.514.191-.962.136-1.071-.057-.115-.211-.176-.441-.29z"/></svg>
+                        (19) 99351-8254
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-gray-900 bg-opacity-50 text-gray-400 py-8 px-6 text-center">
+        <p class="text-sm">
+            &copy; <span id="current-year"></span> Mateus Felipe Granzotto de Campos. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <!-- Biblioteca AOS (Animate on Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // --- Inicializa o AOS ---
+        AOS.init({
+            duration: 800, // Duração da animação em ms
+            once: true,    // Animar apenas uma vez
+            offset: 50,    // Offset (em px) para disparar a animação
+        });
+
+        // --- Atualiza o ano no footer ---
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- Lógica do Menu Mobile ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Fecha o menu mobile ao clicar em um link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- Lógica do Scroll Ativo na Navbar (CORRIGIDA) ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+
+        function changeNav(linksNodeList) {
+            const links = Array.from(linksNodeList); // Converte para Array
+            let currentSectionId = '';
+
+            // Encontra a seção atual com base na posição do scroll
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 100) { // 100px de offset
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            // Itera sobre todos os links
+            links.forEach(link => {
+                link.classList.remove('nav-link-active');
+                link.classList.add('nav-link-hover');
+                
+                // Adiciona a classe ativa se o href do link corresponder ao ID da seção atual
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('nav-link-active');
+                    link.classList.remove('nav-link-hover');
+                }
+            });
+
+            // Caso especial: Se estiver no topo (seção home), nenhum link deve estar ativo
+            if (currentSectionId === 'home' || (window.scrollY < sections[1].offsetTop - 100)) {
+                 links.forEach(link => {
+                    link.classList.remove('nav-link-active');
+                    link.classList.add('nav-link-hover');
+                });
+            }
+        }
+
+        // Adiciona o listener de scroll
+        window.addEventListener('scroll', () => {
+            changeNav(navLinks);
+            changeNav(mobileNavLinks);
+        });
+
+        // Define o link ativo no carregamento inicial
+        changeNav(navLinks);
+        changeNav(mobileNavLinks);
+    </script>
+
+</body>
+</html>
+
+
+
+
+
