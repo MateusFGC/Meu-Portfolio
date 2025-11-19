@@ -1,0 +1,68 @@
+/* Define a fonte Inter como padrão */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Gradiente de fundo solicitado */
+    background-color: #11192C;
+    /* Fallback */
+    background-image: linear-gradient(180deg, #1D283A, #11192C);
+    background-attachment: fixed;
+    /* Para o gradiente não rolar com o conteúdo */
+}
+
+/* Classe customizada para o link ativo da navbar */
+.nav-link-active {
+    color: #60a5fa;
+    /* text-blue-400 */
+    border-bottom-color: #60a5fa;
+}
+
+/* Efeito de hover para links da navbar */
+.nav-link-hover {
+    @apply border-b-2 border-transparent transition-all duration-300;
+}
+
+.name-gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500;
+}
+
+.nav-link-hover:hover {
+    @apply border-blue-400 text-blue-400;
+}
+
+/* Botão com efeito de hover (ring) */
+.btn-hover-ring {
+    @apply transition-all duration-300 rounded-lg;
+    @apply hover: ring-2 hover:ring-blue-400 hover:ring-offset-2 hover:ring-offset-gray-900;
+}
+
+.btn-secondary-hover-ring {
+    @apply transition-all duration-300 rounded-lg;
+    @apply hover: ring-2 hover:ring-gray-500 hover:ring-offset-2 hover:ring-offset-gray-800;
+}
+
+/* Estilos para os "badges" de habilidades */
+.skill-badge {
+    @apply bg-blue-900 bg-opacity-50 text-blue-300 text-sm font-medium px-4 py-2 rounded-full shadow-sm border border-blue-700;
+}
+
+.skill-badge-green {
+    @apply bg-green-900 bg-opacity-50 text-green-300 text-sm font-medium px-4 py-2 rounded-full shadow-sm border border-green-700;
+}
+
+.skill-badge-purple {
+    @apply bg-purple-900 bg-opacity-50 text-purple-300 text-sm font-medium px-4 py-2 rounded-full shadow-sm border border-purple-700;
+}
+
+/* Estilo para o highlight no texto */
+.highlight-gradient {
+    @apply bg-gradient-to-r from-blue-300 to-blue-400 bg-clip-text text-transparent font-medium;
+}
+
+/* Estilo para o highlight com gradiente do nome */
+.name-gradient-text {
+    @apply bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent font-bold;
+}
+
+a {
+    border-radius: 10px;
+}
